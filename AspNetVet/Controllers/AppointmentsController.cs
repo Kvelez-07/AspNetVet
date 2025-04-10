@@ -4,39 +4,20 @@ namespace AspNetVet.Controllers
 {
     public class AppointmentsController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
 
-        public IActionResult SetAppointment()
-        {
-            return View();
-        }
+        public IActionResult AddAppointment() => View();
 
-        public IActionResult GetPet()
-        {
-            return View();
-        }
+        public IActionResult EditAppointment() => View();
 
-        public IActionResult GetVet()
-        {
-            return View();
-        }
+        public IActionResult GetPet() => View();
 
-        public IActionResult AppointmentTypes()
-        {
-            return View();
-        }
+        public IActionResult GetVet() => View();
 
-        public IActionResult AddAppointmentType()
-        {
-            return View();
-        }
+        public IActionResult AppointmentTypes() => View();
 
-        public IActionResult EditAppointmentType()
-        {
-            return View();
-        }
+        public IActionResult AddAppointmentType() => View();
+
+        public IActionResult EditAppointmentType() => View();
     }
 }

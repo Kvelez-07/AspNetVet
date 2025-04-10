@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AspNetVet.Models.Appointment_Types
+
+@{
     ViewData["Title"] = "Agregar Tipos de Cita";
 }
 
@@ -154,73 +156,44 @@
     }
 </style>
 
-<div class="nav-container">
-    <div class="logo">Logo</div>
-    <ul class="main-nav">
-        <li>Principal</li>
-        <li>
-            Usuarios
-            <div class="dropdown-content">
-                <a href="#">Usuarios</a>
-                <a href="#">Veterinarios</a>
-                <a href="#">Clientes</a>
-            </div>
-        </li>
-        <li>
-            Mascotas
-            <div class="dropdown-content">
-                <a href="#">Mascotas</a>
-                <a href="#">Especies</a>
-                <a href="#">Raza</a>
-            </div>
-        </li>
-        <li>Proveedores</li>
-        <li>
-            Citas
-            <div class="dropdown-content">
-                <a href="#">Solicitud</a>
-                <a href="#">En proceso</a>
-                <a href="#">Finalizadas</a>
-            </div>
-        </li>
-        <li>
-            Inventario
-            <div class="dropdown-content">
-                <a href="#">Productos</a>
-                <a href="#">Medicinas</a>
-                <a href="#">Kardex General</a>
-            </div>
-        </li>
-        <li>Ventas</li>
-    </ul>
-</div>
-
 <div class="form-container mt-5">
-    <div class="form-group">
-        <label class="form-label">Mascota:</label>
-        <div class="form-field">
-            <input type="text" id="pet" name="pet" />
-        </div>
-    </div>
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
 
-    <div class="form-group">
-        <label class="form-label">Veterinario:</label>
-        <div class="form-field">
-            <input type="text" id="veterinarian" name="veterinarian" />
+        <div class="form-group">
+            <label class="form-label">Codigo:</label>
+            <div class="form-field">
+                <input type="text" asp-for="Code" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
         </div>
-    </div>
+
+        <div class="form-group">
+            <label class="form-label">Nombre:</label>
+            <div class="form-field">
+                <input type="text" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+@*         <div class="form-group">
+            <label class="form-label">Estado:</label>
+            <div class="form-field">
+                <input type="checkbox" asp-for="Status" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+        </div> *@
+    </form>
 </div>
 
 <div class="bottom-buttons">
     <div class="buttons-container">
-        <button type="button" class="btn-regresar">Regresar</button>
-        <button type="submit" class="btn-modificar">Modificar</button>
+        <a asp-action="AppointmentTypes" class="btn-regresar">Regresar</a>
+        <button type="submit" form="editForm" class="btn-modificar">Modificar</button>
     </div>
 </div>
 
-<script>
-    // Optional JavaScript can be added here
-    document.addEventListener('DOMContentLoaded', function() {
-        // Any initialization code can go here
-    });
-</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -22,32 +22,56 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Usuarios</a>
+                        <!-- Dropdown for Usuarios -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownUsuarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Usuarios
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Index">Usuarios</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Veterinarians" asp-action="Index">Veterinarios</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Clients" asp-action="Index">Clientes</a></li>
+                            </ul>
+                        </li>
+                        <!-- Dropdown for Mascotas -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMascotas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Mascotas
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMascotas">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Pets" asp-action="Index">Mascotas</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Species" asp-action="Index">Especies</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Breeds" asp-action="Index">Raza</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Mascotas</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Suppliers" asp-action="Index">Proveedores</a>
+                        </li>
+                        <!-- Dropdown for Citas -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownCitas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Citas
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCitas">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Appointments" asp-action="Index">Citas</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Appointments" asp-action="Request">Solicitud</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Appointments" asp-action="InProcess">En proceso</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Appointments" asp-action="Completed">Finalizadas</a></li>
+                            </ul>
+                        </li>
+                        <!-- Dropdown for Inventario -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownInventario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Inventario
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownInventario">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Index">Productos</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Medicines" asp-action="Index">Medicinas</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Inventory" asp-action="GeneralKardex">Kardex General</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Proveedores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Citas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="PrincipalProducts">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Medicines" asp-action="PrincipalMedicines">Medicinas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Ventas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Appointments" asp-action="Index">Appointments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="Index">Pets</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Sales" asp-action="Index">Ventas</a>
                         </li>
                     </ul>
                 </div>
@@ -59,12 +83,6 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - AspNetVet - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
