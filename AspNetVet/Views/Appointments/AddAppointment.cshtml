@@ -1,4 +1,4 @@
-﻿@model AspNetVet.Models.Pets
+﻿@model AspNetVet.Models.Appointments
 
 @{
     ViewData["Title"] = "Agendar Cita";
@@ -137,16 +137,6 @@
         font-weight: bold;
     }
 
-    .btn-actualizar {
-        background-color: lightsalmon;
-        color: black;
-        border: none;
-        padding: 10px 50px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
     .buttons-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -164,71 +154,77 @@
                 <input type="text" asp-for="Code" id="code" name="code" />
                 <span asp-validation-for="Code" class="text-danger"></span>
             </div>
-
-            <label class="form-label" asp-for="Name">Nombre:</label>
+            <label class="form-label" style="margin-left: 20px;" asp-for="Appointment_Date">Fecha:</label>
             <div class="form-field" style="max-width: 300px;">
-                <input type="text" asp-for="Name" id="name" name="name" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <input type="date" asp-for="Appointment_Date" id="date" name="date" />
+                <span asp-validation-for="Appointment_Date" class="text-danger"></span>
             </div>
-
-            <label class="form-label" asp-for="Birth_Date">Nacimiento:</label>
+            <label class="form-label" style="margin-left: 20px;" asp-for="Appointment_Types_Id">Tipo de cita:</label>
             <div class="form-field" style="max-width: 300px;">
-                <input type="date" asp-for="Birth_Date" id="birthdate" name="birthdate" />
-                <span asp-validation-for="Birth_Date" class="text-danger"></span>
+                <select asp-for="Appointment_Types_Id" id="type" name="type">
+                    <option value="">Seleccione un tipo</option>
+                    <!-- You would typically populate this from ViewBag or ViewModel -->
+                    <option value="1">Consulta</option>
+                    <option value="2">Urgencia</option>
+                    <option value="3">Control</option>
+                    <option value="4">Vacunacion</option>
+                    <option value="5">Desparacitacion</option>
+                </select>
+                <span asp-validation-for="Appointment_Types_Id" class="text-danger"></span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="form-label" asp-for="Species_Id">Especie:</label>
+            <label class="form-label" asp-for="Customer_Id">Cliente:</label>
             <div class="form-field" style="max-width: 630px;">
-                <select asp-for="Species_Id" id="species" name="species" class="form-control">
-                    <option value="">Seleccione una especie</option>
-                    <option value="1">Perro</option>
-                    <option value="2">Gato</option>
-                    <option value="3">Ave</option>
-                    <option value="4">Roedor</option>
+                <input type="text" asp-for="Customer_Id" id="client" name="client" />
+                <span asp-validation-for="Customer_Id" class="text-danger"></span>
+            </div>
+            <label class="form-label" style="margin-left: 20px;" asp-for="Statuses_Id">Estado:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <select asp-for="Statuses_Id" id="status" name="status">
+                    <option value="">Seleccione un estado</option>
+                    <!-- You would typically populate this from ViewBag or ViewModel -->
+                    <option value="1">Pendiente</option>
+                    <option value="2">Confirmada</option>
+                    <option value="3">Cancelada</option>
+                    <option value="4">Realizada</option>
                 </select>
-                <span asp-validation-for="Species_Id" class="text-danger"></span>
+                <span asp-validation-for="Statuses_Id" class="text-danger"></span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="form-label" asp-for="Breeds_Id">Raza:</label>
+            <label class="form-label" asp-for="Pets_Id">Mascota:</label>
             <div class="form-field">
-                <select asp-for="Breeds_Id" id="breeds" name="breeds" class="form-control">
-                    <option value="">Seleccione una raza</option>
-                    <option value="1">Labrador</option>
-                    <option value="2">Pastor Alemán</option>
-                    <option value="3">Siamés</option>
-                    <option value="4">Persa</option>
-                </select>
-                <span asp-validation-for="Breeds_Id" class="text-danger"></span>
+                <input type="text" asp-for="Pets_Id" id="pet" name="pet" />
+                <span asp-validation-for="Pets_Id" class="text-danger"></span>
             </div>
             <button type="button" class="search-button">Buscar</button>
         </div>
 
         <div class="form-group">
-            <label class="form-label" asp-for="AppUsers_Id">Dueño:</label>
+            <label class="form-label" asp-for="Vet_Id">Veterinario:</label>
             <div class="form-field">
-                <select asp-for="AppUsers_Id" id="owner" name="owner" class="form-control">
-                    <option value="">Seleccione un dueño</option>
-                    <option value="1">Juan Pérez</option>
-                    <option value="2">María García</option>
-                    <option value="3">Carlos López</option>
-                </select>
-                <span asp-validation-for="AppUsers_Id" class="text-danger"></span>
+                <input type="text" asp-for="Vet_Id" id="veterinarian" name="veterinarian" />
+                <span asp-validation-for="Vet_Id" class="text-danger"></span>
             </div>
             <button type="button" class="search-button">Buscar</button>
         </div>
 
-        <!-- Hidden field for Status since it's a boolean with default value -->
-        <input type="hidden" asp-for="Status" value="true" />
+        <div class="form-group">
+            <label class="form-label" asp-for="Description">Descripción:</label>
+            <div class="form-field">
+                <textarea asp-for="Description" id="description" name="description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
     </div>
 
     <div class="bottom-buttons">
         <div class="buttons-container">
             <a asp-action="Index" class="btn-regresar">Regresar</a>
-            <button type="submit" class="btn-actualizar">Actualizar</button>
+            <button type="submit" class="btn-guardar">Guardar</button>
         </div>
     </div>
 </form>

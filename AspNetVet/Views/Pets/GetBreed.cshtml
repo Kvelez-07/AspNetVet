@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<AspNetVet.Models.Breeds>
+
+@{
     ViewData["Title"] = "Mascotas";
 }
 
@@ -120,50 +122,6 @@
         }
 </style>
 
-<div class="header-container">
-    <div class="logo">Logo</div>
-</div>
-
-<div class="nav-container">
-    <ul class="main-nav">
-        <li>Principal</li>
-        <li>
-            Usuarios
-            <div class="dropdown-content">
-                <a href="#">Usuarios</a>
-                <a href="#">Veterinarios</a>
-                <a href="#">Clientes</a>
-            </div>
-        </li>
-        <li>
-            Mascotas
-            <div class="dropdown-content">
-                <a href="#">Mascotas</a>
-                <a href="#">Especies</a>
-                <a href="#">Raza</a>
-            </div>
-        </li>
-        <li>Proveedores</li>
-        <li>
-            Citas
-            <div class="dropdown-content">
-                <a href="#">Solicitud</a>
-                <a href="#">En proceso</a>
-                <a href="#">Finalizadas</a>
-            </div>
-        </li>
-        <li>
-            Inventario
-            <div class="dropdown-content">
-                <a href="#">Productos</a>
-                <a href="#">Medicinas</a>
-                <a href="#">Kardex General</a>
-            </div>
-        </li>
-        <li>Ventas</li>
-    </ul>
-</div>
-
 <div class="search-container">
     <button type="button" class="btn-regresar" id="backPetBtn">Regresar</button>
     <label style="margin-right: 10px;">Buscar:</label>
@@ -182,151 +140,44 @@
         </tr>
     </thead>
     <tbody id="breedTableBody">
-        <tr>
-            <td>1</td>
-            <td>000001</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>000002</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>000003</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>000004</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>000005</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>000006</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>000007</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>000008</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>000009</td>
-            <td>sample text</td>
-            <td>sample text</td>
-            <td>
-                <button class="select-btn">
-                    <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Seleccionar
-                </button>
-            </td>
-        </tr>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var breed in Model)
+            {
+                <tr>
+                    <td>@breed.Id</td>
+                    <td>@breed.Name</td>
+                    <td>@breed.Species</td>
+                    <td>@breed.Status</td>
+                    <td>
+                        <button type="button" class="select-btn" data-id="@breed.Id">Seleccionar</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>1</td>
+                <td>000001</td>
+                <td>sample text</td>
+                <td>sample text</td>
+                <td>
+                    <button class="select-btn">
+                        <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
+                        </svg>
+                        Seleccionar
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="7" class="text-center">No se encontraron mas razas.</td>
+            </tr>
+        }
     </tbody>
 </table>
 
-<script>
-    // Optional: Add dropdown functionality for menus
-    document.addEventListener('DOMContentLoaded', function() {
-        const navItems = document.querySelectorAll('.main-nav li');
-
-        navItems.forEach(item => {
-            const dropdown = item.querySelector('.dropdown-content');
-            if (dropdown) {
-                item.addEventListener('mouseover', function() {
-                    dropdown.style.display = 'block';
-                });
-
-                item.addEventListener('mouseout', function() {
-                    dropdown.style.display = 'none';
-                });
-            }
-        });
-    });
-</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

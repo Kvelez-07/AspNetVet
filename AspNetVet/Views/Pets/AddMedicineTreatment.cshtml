@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Tratamiento";
+﻿@model AspNetVet.Models.Medicine_Treatments
+
+@{
+    ViewData["Title"] = "Agregar Tratamiento";
 }
 
 <style>
@@ -175,103 +177,73 @@
     }
 </style>
 
-<div class="nav-container">
-    <div class="logo">Logo</div>
-    <ul class="main-nav">
-        <li>Principal</li>
-        <li>
-            Usuarios
-            <div class="dropdown-content">
-                <a href="#">Usuarios</a>
-                <a href="#">Veterinarios</a>
-                <a href="#">Clientes</a>
+<form asp-action="Create" method="post">
+    <div class="form-container">
+        <div class="form-group">
+            <label class="form-label" asp-for="Treatment_Date">Fecha y hora:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input type="datetime-local" asp-for="Treatment_Date" />
+                <span asp-validation-for="Treatment_Date" class="text-danger"></span>
             </div>
-        </li>
-        <li>
-            Mascotas
-            <div class="dropdown-content">
-                <a href="#">Mascotas</a>
-                <a href="#">Especies</a>
-                <a href="#">Raza</a>
-            </div>
-        </li>
-        <li>Proveedores</li>
-        <li>
-            Citas
-            <div class="dropdown-content">
-                <a href="#">Solicitud</a>
-                <a href="#">En proceso</a>
-                <a href="#">Finalizadas</a>
-            </div>
-        </li>
-        <li>
-            Inventario
-            <div class="dropdown-content">
-                <a href="#">Productos</a>
-                <a href="#">Medicinas</a>
-                <a href="#">Kardex General</a>
-            </div>
-        </li>
-        <li>Ventas</li>
-    </ul>
-</div>
+        </div>
 
-<div class="form-container">
-    <div class="form-group">
-        <label class="form-label">Fecha y hora:</label>
-        <div class="form-field" style="max-width: 300px;">
-            <input type="text" id="fechaHora" name="fechaHora" />
+        <div class="form-group">
+            <label class="form-label" asp-for="Description">Descripción:</label>
+            <div class="form-field">
+                <textarea asp-for="Description" rows="6"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-field">
+                <label class="section-label">Medicinas:</label>
+                <div class="mt-2">
+                    <button type="button" class="btn-agregar">Agregar</button>
+                </div>
+                <table class="medicines-table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Code</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- This would typically be populated dynamically -->
+                        <tr>
+                            <td>
+                                <input type="hidden" name="Medicines[0].Medicines_Id" value="2" />
+                                2
+                            </td>
+                            <td>000002</td>
+                            <td>sample text</td>
+                            <td>sample text</td>
+                            <td>
+                                <button type="button" class="icon-button" onclick="removeMedicine(this)">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Hidden fields for related entities -->
+        <input type="hidden" asp-for="Pets_Id" />
+        <input type="hidden" asp-for="AppUsers_Id" />
+        <input type="hidden" asp-for="Status" value="true" />
+    </div>
+
+    <div class="bottom-buttons">
+        <div class="buttons-container">
+            <button type="button" class="btn-regresar">Regresar</button>
+            <button type="submit" class="btn-agregar-tratamiento">Agregar</button>
         </div>
     </div>
+</form>
 
-    <div class="form-group">
-        <label class="form-label">Descripción:</label>
-        <div class="form-field">
-            <textarea id="descripcion" name="descripcion" rows="6"></textarea>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="section-label">Medicinas:</label>
-        <div class="form-field">
-            <div>
-                <button type="button" class="btn-agregar">Agregar</button>
-            </div>
-            <table class="medicines-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Cod</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2</td>
-                        <td>000002</td>
-                        <td>sample text</td>
-                        <td>sample text</td>
-                        <td>
-                            <button class="icon-button">🗑️</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<div class="bottom-buttons">
-    <div class="buttons-container">
-        <button type="button" class="btn-regresar">Regresar</button>
-        <button type="submit" class="btn-agregar-tratamiento">Agregar Tratamiento</button>
-    </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Any initialization code can go here
-    });
-</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

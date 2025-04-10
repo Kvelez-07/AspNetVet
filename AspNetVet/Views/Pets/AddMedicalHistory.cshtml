@@ -1,7 +1,7 @@
 ﻿@model AspNetVet.Models.Medical_History
 
 @{
-    ViewData["Title"] = "Editar Historial";
+    ViewData["Title"] = "Nuevo Historial";
 }
 
 <style>
@@ -128,7 +128,7 @@
     }
 
     .btn-agregar {
-        background-color: lightsalmon;
+        background-color: #92ec92;
         color: black;
         border: none;
         padding: 10px 50px;
@@ -189,9 +189,7 @@
 </style>
 
 <div class="form-container">
-    <form asp-action="EditMedicalHistory" method="post">
-        <input type="hidden" asp-for="Id" />
-
+    <form asp-action="AddToMedicalHistory" method="post">
         <div class="form-group">
             <label asp-for="Visit_Date" class="form-label">Fecha de visita:</label>
             <div class="form-field" style="max-width: 300px;">
@@ -291,7 +289,7 @@
         <div class="bottom-buttons">
             <div class="buttons-container">
                 <a asp-action="GetMedicalHistory" class="btn-regresar">Regresar</a>
-                <button type="submit" class="btn-agregar">Editar</button>
+                <button type="submit" class="btn-agregar">Agregar</button>
             </div>
         </div>
     </form>

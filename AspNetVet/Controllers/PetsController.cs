@@ -4,59 +4,28 @@ namespace AspNetVet.Controllers
 {
     public class PetsController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
 
-        public IActionResult AddPet()
-        {
-            return View();
-        }
+        public IActionResult AddPet() => View();
 
-        public IActionResult EditPet()
-        {
-            return View();
-        }
+        public IActionResult EditPet() => View();
 
-        public IActionResult GetBreed()
-        {
-            return View();
-        }
+        public IActionResult GetBreed() => View();
 
-        public IActionResult GetOwner()
-        {
-            return View();
-        }
+        public IActionResult GetOwner() => View();
 
-        public IActionResult GetMedicalHistory()
-        {
-            return View();
-        }
+        public IActionResult GetMedicalHistory() => View();
 
-        public IActionResult AddToMedicalHistory()
-        {
-            return View();
-        }
+        public IActionResult AddToMedicalHistory() => View();
 
-        public IActionResult EditMedicalHistory()
-        {
-            return View();
-        }
+        public IActionResult AddMedicalHistory() => View();
 
-        public IActionResult GetMedicineTreatment()
-        {
-            return View();
-        }
+        public IActionResult EditMedicalHistory() => View();
 
-        public IActionResult AddMedicineTreatment()
-        {
-            return View();
-        }
+        public IActionResult GetMedicineTreatment() => View();
 
-        public IActionResult EditMedicineTreatment()
-        {
-            return View();
-        }
+        public IActionResult AddMedicineTreatment() => View();
+
+        public IActionResult EditMedicineTreatment() => View();
     }
 }
