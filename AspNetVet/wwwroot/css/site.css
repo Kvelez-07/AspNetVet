@@ -1,5 +1,7 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -12,11 +14,54 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   margin-bottom: 60px;
+}
+
+.lblSearch {
+    color: #564884;
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 10px; /* Agregamos un pequeño espacio entre la etiqueta y el input */
+}
+.formSeach .row {
+    margin-bottom: 10px;
+}
+
+.SearchBox {
+    display:block;
+    position: relative;
+    width: 95%;
+    height:fit-content;
+    box-sizing:border-box;
+    padding:2px;
+    align-items:center;
+    margin: 20px 20px 0px 20px;
+}
+
+.formTable {
+    position: relative;
+    width: 95%;
+    box-sizing: border-box;
+    align-items: center;
+    margin: 3px 20px 20px 20px;
+}
+
+.TableHeader {
+    display: block;
+    background-color: #564884;
+    border-radius: 10px;
+    padding: 5px;
+    height:35px;
+}
+
+.lblHeader {
+    color: #564884;
+    background-color: #ffffffc8;
+    text-align:center;
+    padding:0px;
+    border-radius:10px;
+    font-size: 16px;
+    font-weight: bold;
+    justify-content:center;
 }

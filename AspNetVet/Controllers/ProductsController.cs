@@ -4,9 +4,11 @@ namespace AspNetVet.Controllers
 {
     public class ProductsController : Controller
     {
-        public IActionResult Index()
+        public IActionResult PrincipalProducts()
         {
             return View();
         }
+
+
     }
 }
