@@ -1,0 +1,99 @@
+﻿@{
+	ViewData["Title"] = "Agregar Medicinas";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm text-center">
+			<h1 class="lblSearch">
+				Agregar Medicinas
+			</h1>
+		</div>
+	</div>
+</div>
+<form action="/" method="post">
+	<div class="formAddMod">
+		<div class="form-group row">
+			<label class="col-sm-1" for="codigo"> Código: </label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" name="codigo" />
+			</div>
+
+			<label class="col-sm-1" for="nombre"> Nombre: </label>
+			<div class="col-sm-7">
+				<input type="text" class="form-control" name="nombre" />
+			</div>
+		</div>
+		<br />
+
+		<div class="form-group row">
+			<label class="col-sm-1" for="proveedor"> Proveedor: </label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" name="proveedor" />
+			</div>
+			<div class="col-sm-2">
+				<a type="button" class="btn btn-info mb-2 w-100" id="BuscarProv" asp-action=""> Buscar </a>
+			</div>
+
+			<label class="col-sm-1" for="precio"> Precio: </label>
+			<div class="col-sm-3">
+				<input type="number" class="form-control" name="nombre" />
+			</div>
+		</div>
+
+		<br />
+
+		<div class="form-group row">
+			<label for="txaDesc" class="col-sm-1">Descripción:</label>
+			<div class="col-sm-7">
+				<textarea class="form-control" id="txaDesc" name="txaDesc" rows="5"></textarea>
+			</div>
+			<div class="col-sm-1">
+				<label for="tipoProd">Tipo de producto:</label>
+				<br /> <br />
+				<label for="txtStock">Stock:</label>
+			</div>
+			<div class="col-sm-3">
+				<select class="form-control" id="tipoProd" name="tipoProd">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<br /> <br />
+				<input type="number" class="form-control" name="txtStock" />
+			</div>
+		</div>
+		<br />
+		<div class="form-group row">
+			<div class="col-sm-1"></div>
+			<label for="txtStockMin" class="col-sm-2">Stock(Mínimo):</label>
+			<div class="col-sm-2">
+				<input type="number" class="form-control" name="txtStockMin" />
+			</div>
+			<div class="col-sm-2"></div>
+			<label for="txtStockMax" class="col-sm-2">Stock(Máximo):</label>
+			<div class="col-sm-2">
+				<input type="number" class="form-control" name="txtStockMax" />
+			</div>
+		</div>
+		<br />
+		<br />
+	</div>
+	<div class="FormbtnArea">
+		<div class=" form-group row h-100 p-2">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-4">
+				<a type="button" class="btn btn-danger btn-lg w-100 h-100 font-weight-bold" asp-action="Index">Regresar</a>
+			</div>
+			<div class="col-sm-2"></div>
+			<div class="col-sm-4">
+				<a type="button" class="btn btn-success btn-lg w-100 h-100 font-weight-bold" asp-action="Index">Guardar</a>
+			</div>
+		</div>
+	</div>
+</form>@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
