@@ -4,7 +4,7 @@ namespace AspNetVet.Controllers
 {
     public class MedicinesController : Controller
     {
-        public IActionResult PrincipalMedicines()
+        public IActionResult Index()
         {
             return View();
         }
