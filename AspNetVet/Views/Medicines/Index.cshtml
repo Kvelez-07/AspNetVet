@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Medicinas";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">
+                Medicinas
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="SearchBox">
+    <form action="/" method="post" class="formSeach">
+        <div class="row">
+            <div class="col-md-1">
+                <label class="lblSearch">
+                    Buscar:
+                </label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="px-4 form-control" name="busqueda" placeholder="Código / nombre" />
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-info w-100" id="btnBuscar">Buscar</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <label for="selectTipo">Tipo:</label>
+            </div>
+            <div class="col-md-5">
+                <select class="form-control" id="selectTipo">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-warning" id="btnAGestTipo">Gestionar Tipos</a>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-success w-100" id="btnAgregarMedicina" asp-action="AddMedicine">Agregar Medicina</a>
+            </div>
+        </div>
+    </form>
+    <br />
+</div>
+<form action="/" method="post" class="formTable">
+    <div class="table-responsive">
+        <div class="TableHeader">
+            <div class="row">
+                <div class="col-md-1" hidden>
+                    <div class="lblHeader">
+                        <p>ID</p>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="lblHeader">
+                        <p>Cod</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="lblHeader">
+                        <p>Nombre</p>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="lblHeader">
+                        <p>Descripción</p>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="lblHeader">
+                        <p>Stock</p>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="lblHeader">
+                        <p>Precio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td hidden>1</td>
+                    <th class="col-sm-1 text-truncate text-center text-break">00001</th>
+                    <td class="col-sm-3 text-truncate">Pelota plástica</td>
+                    <td class="col-sm-5 text-truncate" style="max-width:550px;">Pelota de plástico</td>
+                    <td class="col-sm-1 text-wrap text-center">10</td>
+                    <td class="col-sm-1 text-wrap text-center">2000</td>
+                    <td class="col-md-2 text-wrap">
+                        <a class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModMed1" asp-action="EditMedicine">
+                            <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
+                        </a>
+                        <a class="rounded m-1 p-0 border border-light bg-transparent" id="btnDelMed1" onclick="return confirm('Desea borrar?')">
+                            <img src="~/resources/trash-img.jpeg" height="25px" width="25px" alt="Del">
+                        </a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td hidden>2</td>
+                    <th class="col-sm-1 text-truncate text-center text-break">00002</th>
+                    <td class="col-sm-3 text-truncate">Juguete</td>
+                    <td class="col-sm-5 text-truncate" style="max-width:550px;">Juguete</td>
+                    <td class="col-sm-1 text-wrap text-center">12</td>
+                    <td class="col-sm-1 text-wrap text-center">3500</td>
+                    <td class="col-md-2 text-wrap">
+                        <a class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModMed2" asp-action="EditMedicine">
+                            <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
+                        </a>
+                        <a class="rounded m-1 p-0 border border-light bg-transparent" id="btnDelMed2" onclick="return confirm('Desea borrar?')">
+                            <img src="~/resources//trash-img.jpeg" height="25px" width="25px" alt="Del">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td hidden>3</td>
+                    <th class="col-sm-1 text-truncate text-center text-break">00003</th>
+                    <td class="col-sm-3 text-truncate">Peleuche de oso</td>
+                    <td class="col-sm-5 text-truncate" style="max-width:550px;">Peluche de felpa</td>
+                    <td class="col-sm-1 text-wrap text-center">5</td>
+                    <td class="col-sm-1 text-wrap text-center">6000</td>
+                    <td class="col-md-2 text-wrap">
+                        <a class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModMed3" asp-action="EditMedicine">
+                            <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
+                        </a>
+                        <a class="rounded m-1 p-0 border border-light bg-transparent" id="btnDelMed3" onclick="return confirm('Desea borrar?')">
+                            <img src="~/resources/trash-img.jpeg" height="25px" width="25px" alt="Del">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\recursos\" />
+    <Compile Remove="wwwroot\recursos\**" />
+    <Content Remove="wwwroot\recursos\**" />
+    <EmbeddedResource Remove="wwwroot\recursos\**" />
+    <None Remove="wwwroot\recursos\**" />
   </ItemGroup>
 
 </Project>
