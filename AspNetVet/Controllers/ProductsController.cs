@@ -9,5 +9,7 @@ namespace AspNetVet.Controllers
         public IActionResult AddProduct() => View();
 
         public IActionResult EditProduct() => View();
+        
+        public IActionResult SearchSupplierProd() => View();
     }
 }
