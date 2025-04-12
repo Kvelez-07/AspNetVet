@@ -10,7 +10,7 @@ namespace AspNetVet.Controllers
 
         public IActionResult EditMedicine() => View();
         
-        public IActionResult SearchSupplierMed() => View();
+        public IActionResult GetMedicineSupplier() => View();
 
     }
 }

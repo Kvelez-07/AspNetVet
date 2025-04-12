@@ -4,9 +4,6 @@ namespace AspNetVet.Controllers
 {
     public class SpeciesController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
     }
 }
