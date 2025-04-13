@@ -44,9 +44,7 @@
             <div class="col-sm-1">
                 <label class="formText" for="tipoRaza">Tipo de raza:</label>
             </div>
-            <div class="col-sm-3">
-            </div>
-            <div class="col-sm-2">
+            <div class="col-sm-5">
                 <select class="form-control" id="tipoRaza" name="tipoRaza">
                     <option>Text1</option>
                     <option>Text2</option>
@@ -54,23 +52,21 @@
                     <option>Text4</option>
                     <option>Text4</option>
                 </select>
-                <br /> <br />
-
             </div>
         </div>
-
-        <br /> <br /> <br /> <br />
     </div>
-    <div class="FormbtnArea">
-        <div class=" form-group row h-100 p-2">
+
+    <div class="bottom-buttons">
+        <div class="row w-100 d-flex">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-danger w-100 h-100 align-content-center">Regresar</a>
+            </div>
             <div class="col-sm-1"></div>
-            <div class="col-sm-4">
-                <a class="btn btn-danger btn-lg w-100 h-100 font-weight-bold" asp-action="Index">Regresar</a>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-warning w-100 h-100 align-content-center">Actualizar</a>
             </div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4">
-                <a class="btn btn-warning btn-lg w-100 h-100 font-weight-bold" asp-action="GetBreed">Actualizar</a>
-            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </form>
