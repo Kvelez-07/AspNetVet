@@ -103,6 +103,7 @@
         border-radius: 5px;
         cursor: pointer;
         margin-left: 10px;
+        text-decoration: none;
     }
 
     .bottom-buttons {
@@ -145,6 +146,18 @@
         width: 100%;
     }
 </style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">
+                Actualizar cita
+            </h1>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
 
 <form asp-action="Create" method="post">
     <div class="form-container">
@@ -200,7 +213,7 @@
                 <input type="text" asp-for="Pets_Id" id="pet" name="pet" />
                 <span asp-validation-for="Pets_Id" class="text-danger"></span>
             </div>
-            <button type="button" class="search-button">Buscar</button>
+            <a class="search-button" asp-action="GetPet">Buscar</a>
         </div>
 
         <div class="form-group">
@@ -209,7 +222,7 @@
                 <input type="text" asp-for="Vet_Id" id="veterinarian" name="veterinarian" />
                 <span asp-validation-for="Vet_Id" class="text-danger"></span>
             </div>
-            <button type="button" class="search-button">Buscar</button>
+            <a class="search-button" asp-action="GetVet">Buscar</a>
         </div>
 
         <div class="form-group">
@@ -222,9 +235,16 @@
     </div>
 
     <div class="bottom-buttons">
-        <div class="buttons-container">
-            <a asp-action="Index" class="btn-regresar">Regresar</a>
-            <button type="submit" class="btn-editar">Editar</button>
+        <div class="row w-100 d-flex">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-danger w-100 h-100 align-content-center">Regresar</a>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-warning w-100 h-100 align-content-center">Actualizar</a>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </form>

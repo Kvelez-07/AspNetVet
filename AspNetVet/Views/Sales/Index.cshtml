@@ -1,0 +1,203 @@
+@model IEnumerable<AspNetVet.Models.Medicines>
+
+@{
+    ViewData["Title"] = "Ventas";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">
+                Caja
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="SearchBox">
+    <form action="/" method="post" class="formSeach">
+        <div class="row">
+            <div class="col-md-1">
+                <label class="lblSearch">
+                    Producto:
+                </label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="px-4 form-control" name="busqueda" placeholder="Código" />
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-outline-success w-100" id="btnAddProd">Agregar</a>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-info w-100" id="btnBuscarProd" asp-action="GetProduct">Buscar</a>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-success w-100" id="btnTerminarVenta" data-bs-toggle="modal" data-bs-target="#modalTerminarVenta">Terminar venta</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <label class="lblSearch">
+                    Medicina:
+                </label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="px-4 form-control" name="busqueda" placeholder="Código" />
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-outline-success w-100" id="btnAddMed">Agregar</a>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-info w-100" id="btnBuscarMed" asp-action="GetMedicine">Buscar</a>
+            </div>
+            <div class="col-md-1">
+                <label class="formText">
+                    Total:
+                </label>
+            </div>
+            <div class="col-md-2">
+                <input type="number" class="px-4 form-control fw-bold" name="busqueda" placeholder="0.00" />
+            </div>
+        </div>
+    </form>
+    <br />
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalTerminarVenta" tabindex="-1" aria-labelledby="Terminar Venta" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #eeebf8;">
+                <h5 class="lblSearch">Terminar venta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="w-25">
+                        <label class="formText" for="saleType">Tipo de venta:</label>
+                    </div>
+                    <div class="w-75">
+                        <select class="form-control" id="saleType" name="saleType">
+                            <option>Efectivo</option>
+                            <option>Tarjeta</option>
+                            <option>Depósito</option>
+                            <option>Sinpe móvil</option>
+                            <option>Mixto</option>
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="w-25">
+                        <label for="saleTotal" class="formText">Total:</label>
+                    </div>
+                    <div class="w-75">
+                        <input type="number" class="form-control" name="saleTotal" id="saleTotal" />
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="w-25">
+                        <label for="cashTotal" class="formText">Efectivo:</label>
+                    </div>
+                    <div class="w-75">
+                        <input type="number" class="form-control" name="cashTotal" id="cashTotal" />
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="w-25">
+                        <label for="cardTotal" class="formText">Trajeta:</label>
+                    </div>
+                    <div class="w-75">
+                        <input type="number" class="form-control" name="cardTotal" id="cardTotal" />
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="w-25">
+                        <label for="changeTotal" class="formText">Vuelto:</label>
+                    </div>
+                    <div class="w-75">
+                        <input type="number" class="form-control" name="changeTotal" id="changeTotal" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-row align-content-center" style="background-color: #eeebf8;">
+                <a class="btn btn-danger flex-grow-1 h-100" id="btnRegresarFinVenta" data-bs-dismiss="modal">Regresar</a>
+                <a class="btn btn-success flex-grow-1 h-100" id="btnFinVenta" data-bs-dismiss="modal">Terminar venta</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <!-- Table Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table id="petsTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr class="text-center" style="background-color: #8954a8; color: white;">
+                        <th class="px-3 py-2">Id</th>
+                        <th class="px-3 py-2">Código</th>
+                        <th class="px-3 py-2">Nombre</th>
+                        <th class="px-3 py-2">Precio U.</th>
+                        <th class="px-3 py-2">Cant.</th>
+                        <th class="px-3 py-2">Impuesto</th>
+                        <th class="px-3 py-2">Descuento</th>
+                        <th class="px-3 py-2">Total</th>
+                        <th class="px-3 py-2">Opciones</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td class="text-center">000001</td>
+                        <td>sample text</td>
+                        <td>3000</td>
+                        <td>1</td>
+                        <td>13%</td>
+                        <td>0%</td>
+                        <td>3390</td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-link p-0 mx-1" data-bs-toggle="modal" data-bs-target="#modalEliminar" style="color: black">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" class="text-center">Fin de la factura.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="Eliminar elemento" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #eeebf8;">
+                    <h5 class="lblSearch">Eliminar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="w-100">
+                            <p>¿Desea eliminar este elemento?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex flex-row align-content-center" style="background-color: #eeebf8;">
+                    <a class="btn btn-warning flex-grow-1 h-100" id="btnRegresarDel" data-bs-dismiss="modal">Regresar</a>
+                    <a class="btn btn-danger flex-grow-1 h-100" id="btnDelete" data-bs-dismiss="modal">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
