@@ -122,11 +122,26 @@
     }
 </style>
 
-<div class="search-container">
-    <a asp-action="Index" class="btn btn-regresar" id="backPetBtn">Regresar</a>
-    <label style="margin-right: 10px;">Buscar:</label>
-    <input type="text" class="search-input" id="searchPetInput" placeholder="Nombre / Codigo" />
-    <button type="button" class="btn-buscar" id="searchPetBtn">Buscar</button>
+<div class="SearchBox">
+    <form action="/" method="post" class="formSeach">
+        <div class="row">
+            <div class="col-md-2">
+                <a class="btn btn-danger w-100" id="btnRegresar" asp-action="AddMedicineTreatment">Regresar</a>
+            </div>
+            <div class="col-md-1">
+                <label class="lblSearch">
+                    Buscar:
+                </label>
+            </div>
+            <div class="col-md-7">
+                <input type="text" class="px-4 form-control" name="busqueda" placeholder="Código / nombre" />
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-info w-100" id="btnBuscar">Buscar</a>
+            </div>
+        </div>
+    </form>
+    <br />
 </div>
 
 <table class="pet-table" id="petTable">
@@ -152,8 +167,12 @@
                     <td class="text-center">@medicine.Description</td>
                     <td class="text-center">@medicine.Stock</td>
                     <td class="text-center">
-                        <button type="button" class="select-btn" data-id="@medicine.Id">Seleccionar</button>
-                    </td>
+                        <a asp-action="AddMedicineTreatment" class="btn w-100 h-100 align-content-center bg-transparent" data-id="@medicine.Id">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
+                                <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
+                            </svg>
+                            Seleccionar
+                        </a>                    </td>
                 </tr>
             }
         }
@@ -166,12 +185,12 @@
                 <td>sample text</td>
                 <td>sample text</td>
                 <td>
-                    <button class="select-btn">
-                        <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
-                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
+                    <a asp-action="AddMedicineTreatment" class="btn w-100 h-100 align-content-center bg-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
+                            <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
                         </svg>
                         Seleccionar
-                    </button>
+                    </a>
                 </td>
             </tr>
             <tr>

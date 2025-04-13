@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<AspNetVet.Models.Suppliers>
+
+@{
     ViewData["Title"] = "Buscar proveedor";
 }
 
@@ -33,84 +35,69 @@
     </form>
     <br />
 </div>
-<form action="/" method="post" class="formTable">
-    <div class="table-responsive">
-        <div class="TableHeader">
-            <div class="row">
-                <div hidden>
-                    <div class="lblHeader">
-                        <p>ID</p>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="lblHeader">
-                        <p>Cod</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="lblHeader">
-                        <p>Nombre</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="lblHeader">
-                        <p>Correo</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="lblHeader">
-                        <p>Telefono</p>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="lblHeader">
-                        <p>Opciones</p>
-                    </div>
-                </div>
+
+<div class="container-fluid">
+    <!-- Table Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table id="petsTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr class="text-center" style="background-color: #8954a8; color: white;">
+                        <th class="px-3 py-2">Id</th>
+                        <th class="px-3 py-2">Código</th>
+                        <th class="px-3 py-2">Nombre</th>
+                        <th class="px-3 py-2">Descripción</th>
+                        <th class="px-3 py-2">Stock</th>
+                        <th class="px-3 py-2">Precio</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var supplier in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@supplier.Id</td>
+                                <td class="text-center">@supplier.Code</td>
+                                <td class="text-center">@supplier.Supplier_Name</td>
+                                <td class="text-center">@supplier.Email</td>
+                                <td class="text-center">@supplier.Phone</td>
+                                <td>
+                                    <a asp-action="AddMedicine" class="btn w-100 h-100 align-content-center bg-transparent">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
+                                            <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
+                                        </svg>
+                                        Seleccionar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="text-center">1</td>
+                            <td class="text-center">000001</td>
+                            <td>sample text</td>
+                            <td>sample text</td>
+                            <td>sample text</td>
+                            <td>
+                                <a asp-action="AddMedicine" class="btn w-100 h-100 align-content-center bg-transparent">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
+                                        <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
+                                    </svg>
+                                    Seleccionar
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="text-center">No se encontraron mas proveedores.</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
             </div>
         </div>
-        <table class="table table-hover">
-            <tbody>
-                <tr>
-                    <td hidden>1</td>
-                    <th class="col-sm-1 text-truncate text-center text-break">00001</th>
-                    <td class="col-sm-3 text-truncate">Nutro</td>
-                    <td class="col-sm-2 text-truncate" style="max-width:550px;">ejemplo@ejemplo.com</td>
-                    <td class="col-sm-3 text-wrap text-center">1111-1111</td>
-                    <td class="col-md-2 text-wrap">
-                        <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent text-decoration-none text-dark" id="btnSelect1" asp-action="AddMedicine">
-                            <img src="~/resources/click-img.jpeg" height="25px" width="25px" alt="Sel">
-                            <span class="text-dark"> Seleccionar </span>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td hidden>2</td>
-                    <th class="col-sm-1 text-truncate text-center text-break">00002</th>
-                    <td class="col-sm-3 text-truncate">KlinKat</td>
-                    <td class="col-sm-2 text-truncate" style="max-width:550px;">ejemplo@ejemplo.com</td>
-                    <td class="col-sm-3 text-wrap text-center">1111-1111</td>
-                    <td class="col-md-2 text-wrap">
-                        <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent text-decoration-none text-dark" id="btnSelect2" asp-action="AddMedicine">
-                            <img src="~/resources/click-img.jpeg" height="25px" width="25px" alt="Sel">
-                            <span class="text-dark"> Seleccionar </span>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td hidden>3</td>
-                    <th class="col-sm-1 text-truncate text-center text-break">00003</th>
-                    <td class="col-sm-3 text-truncate">Purina</td>
-                    <td class="col-sm-2 text-truncate" style="max-width:550px;">ejemplo@ejemplo.com</td>
-                    <td class="col-sm-3 text-wrap text-center">1111-1111</td>
-                    <td class="col-md-2 text-wrap">
-                        <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent text-decoration-none text-dark" id="btnSelect3" asp-action="AddMedicine">
-                            <img src="~/resources/click-img.jpeg" height="25px" width="25px" alt="Sel">
-                            <span class="text-dark"> Seleccionar </span>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-</form>
+</div>
