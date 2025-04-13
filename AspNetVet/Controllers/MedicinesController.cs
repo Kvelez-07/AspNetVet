@@ -11,6 +11,19 @@ namespace AspNetVet.Controllers
         public IActionResult EditMedicine() => View();
         
         public IActionResult GetMedicineSupplier() => View();
+        
+        public IActionResult AddKardexEntry() => View();
+        
+        public IActionResult AddKardexOutflow() => View();
+        
+        public IActionResult GetGeneralKardex() => View();
+        
+        public IActionResult GetMedicineTypes() => View();
+        
+        public IActionResult AddMedicineTypes() => View();
+
+        public IActionResult EditMedicineTypes() => View();
+
 
     }
 }

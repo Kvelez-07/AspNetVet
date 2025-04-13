@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<AspNetVet.Models.Products>
+
+@{
     ViewData["Title"] = "Productos";
 }
 
@@ -29,7 +31,7 @@
         </div>
         <div class="row">
             <div class="col-md-1">
-                <label for="selectTipo">Tipo:</label>
+                <label for="selectTipo" class="lblSearch">Tipo:</label>
             </div>
             <div class="col-md-5">
                 <select class="form-control" id="selectTipo">
@@ -41,10 +43,10 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <a type="button" class="btn btn-warning w-100" id="btnAGestTipo">Gestionar Tipos</a>
+                <a type="button" class="btn btn-warning w-100" id="btnAGestTipo" asp-action="GetProductTypes">Gestionar Tipos</a>
             </div>
             <div class="col-md-2">
-                <a type="button" class="btn btn-secondary w-100" id="btnVerKardex">Ver kardex</a>
+                <a type="button" class="btn btn-secondary w-100" id="btnVerKardex" asp-action="GetGeneralKardex">Ver kardex</a>
             </div>
             <div class="col-md-2">
                 <a type="button" class="btn btn-success w-100" id="AgregarProd" asp-action="AddProduct">Agregar Producto</a>
@@ -53,93 +55,72 @@
     </form>
     <br />
 </div>
-<form action="/" method="post" class="formTable">
-    <div class="table-responsive">
-        <div class="TableHeader">
-            <div class="row">
-                <div class="col-md-1" hidden>
-                    <div class="lblHeader">
-                        <p>ID</p>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="lblHeader">
-                        <p>Cod</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="lblHeader">
-                        <p>Nombre</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="lblHeader">
-                        <p>Descripción</p>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="lblHeader">
-                        <p>Stock</p>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="lblHeader">
-                        <p>Precio</p>
-                    </div>
-                </div>
+
+<div class="container-fluid">
+    <!-- Table Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table id="petsTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr class="text-center" style="background-color: #8954a8; color: white;">
+                        <th class="px-3 py-2">Id</th>
+                        <th class="px-3 py-2">Código</th>
+                        <th class="px-3 py-2">Nombre</th>
+                        <th class="px-3 py-2">Descripción</th>
+                        <th class="px-3 py-2">Stock</th>
+                        <th class="px-3 py-2">Precio</th>
+                        <th class="px-3 py-2">Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var product in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@product.Id</td>
+                                <td class="text-center">@product.Code</td>
+                                <td class="text-center">@product.Name</td>
+                                <td class="text-center">@product.Description</td>
+                                <td class="text-center">@product.Stock</td>
+                                <td class="text-center">@product.Price</td>
+                                <td class="text-center">
+                                    <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd1">
+                                        <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
+                                    </a>
+                                    <a class="btn rounded m-1 p-0 border border-light bg-transparent" id="btnDelProd1">
+                                        <img src="~/resources/trash-img.jpeg" height="25px" width="25px" alt="Del">
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="text-center">1</td>
+                            <td class="text-center">000001</td>
+                            <td>sample text</td>
+                            <td>sample text</td>
+                            <td>sample text</td>
+                            <td>sample text</td>
+                            <td class="text-center">
+                                <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd1" asp-action="EditProduct">
+                                    <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
+                                </a>
+                                <a class="btn rounded m-1 p-0 border border-light bg-transparent" id="btnDelProd1" onclick="return confirm('Desea borrar?')">
+                                    <img src="~/resources/trash-img.jpeg" height="25px" width="25px" alt="Del">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" class="text-center">No se encontraron mas mascotas.</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
             </div>
         </div>
-        <table class="table table-hover">
-            <tbody>
-                <tr>
-                    <td hidden>1</td>
-                    <th class="col-sm-1 text-truncate text-center text-break">00001</th>
-                    <td class="col-sm-3 text-truncate">Pelota plástica</td>
-                    <td class="col-sm-5 text-truncate" style="max-width:550px;">Pelota de plástico</td>
-                    <td class="col-sm-1 text-wrap text-center">10</td>
-                    <td class="col-sm-1 text-wrap text-center">2000</td>
-                    <td class="col-md-2 text-wrap">
-                        <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd1" asp-action="EditProduct">
-                            <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
-                        </a>
-                        <a class="btn rounded m-1 p-0 border border-light bg-transparent" id="btnDelProd1" onclick="return confirm('Desea borrar?')">
-                            <img src="~/resources/trash-img.jpeg" height="25px" width="25px" alt="Del">
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td hidden>2</td>
-                    <th class="col-sm-1 text-truncate text-center text-break">00002</th>
-                    <td class="col-sm-3 text-truncate">Juguete</td>
-                    <td class="col-sm-5 text-truncate" style="max-width:550px;">Juguete</td>
-                    <td class="col-sm-1 text-wrap text-center">12</td>
-                    <td class="col-sm-1 text-wrap text-center">3500</td>
-                    <td class="col-md-2 text-wrap">
-                        <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd2" asp-action="EditProduct">
-                            <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
-                        </a>
-                        <a class="btn rounded m-1 p-0 border border-light bg-transparent" id="btnDelProd2" onclick="return confirm('Desea borrar?')">
-                            <img src="~/resources/trash-img.jpeg" height="25px" width="25px" alt="Del">
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td hidden>3</td>
-                    <th class="col-sm-1 text-truncate text-center text-break">00003</th>
-                    <td class="col-sm-3 text-truncate">Peleuche de oso</td>
-                    <td class="col-sm-5 text-truncate" style="max-width:550px;">Peluche de felpa</td>
-                    <td class="col-sm-1 text-wrap text-center">5</td>
-                    <td class="col-sm-1 text-wrap text-center">6000</td>
-                    <td class="col-md-2 text-wrap">
-                        <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd3" asp-action="EditProduct">
-                            <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
-                        </a>
-                        <a class="btn rounded m-1 p-0 border border-light bg-transparent" id="btnDelProd3" onclick="return confirm('Desea borrar?')">
-                            <img src="~/resources/trash-img.jpeg" height="25px" width="25px" alt="Del">
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-</form>
+</div>

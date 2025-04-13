@@ -21,7 +21,7 @@ namespace AspNetVet.Models
         public string Movement_Type { get; set; } = string.Empty;
 
         [Required]
-        public DateTime Date_Of_Movement { get; set; } = DateTime.Now;
+        public DateTime? Date_Of_Movement { get; set; } = DateTime.Now;
 
         [MaxLength(200)]
         public string? Description { get; set; }

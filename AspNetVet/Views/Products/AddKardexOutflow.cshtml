@@ -1,0 +1,95 @@
+@{
+    ViewData["Title"] = "Salida de producto";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">
+                Salida de producto
+            </h1>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<form action="/" method="post">
+    <div class="formAddMod">
+        <div class="row">
+            <div class="col-md-6">
+                <div class=" form-group row">
+                    <div class="col-md-4 w-25">
+                        <label for="MoveType" class="formText"> Razón: </label>
+                    </div>
+                    <div class="col-md-6 w-50">
+                        <select class="form-control" id="MoveType" name="MoveType">
+                            <option>Salida</option>
+                            <option>Dañado</option>
+                            <option>Perdido</option>
+                            <option>Expirado</option>
+                            <option>Robado</option>
+                            <option>Ajuste</option>
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <div class=" form-group row">
+                    <div class="col-md-4 w-25">
+                        <label for="MoveDate" class="formText"> Fecha de movimiento: </label>
+                    </div>
+                    <div class="col-md-6 w-50">
+                        <input type="date" class="form-control" name="MoveDate" id="MoveDate"/>
+                    </div>
+                </div>
+                <br/>
+                <div class=" form-group row">
+                    <div class="col-md-4 w-25">
+                        <label for="OldStock" class="formText"> Stock previo: </label>
+                    </div>
+                    <div class="col-md-6 w-50">
+                        <input type="number" class="form-control" name="OldStock" id="OldStock" readonly/>
+                    </div>
+                </div>
+                <br/>
+                <div class=" form-group row">
+                    <div class="col-md-4 w-25">
+                        <label for="Quantity" class="formText"> Cantidad: </label>
+                    </div>
+                    <div class="col-md-6 w-50">
+                        <input type="number" class="form-control" name="Quantity" id="Quantity"/>
+                    </div>
+                </div>
+                <br/>
+                <div class=" form-group row">
+                    <div class="col-md-4 w-25">
+                        <label for="NewStock" class="formText"> Stock actual: </label>
+                    </div>
+                    <div class="col-md-6 w-50">
+                        <input type="number" class="form-control" name="NewStock" id="NewStock" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="row w-100">
+                    <label for="txaDesc" class="formText">Descripción:</label>
+                </div>
+                <br/>
+                <div class="row w-100">
+                    <textarea class="form-control" id="txaDesc" name="txaDesc" rows="11"></textarea>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class=" form-group row h-100 p-2">
+            <div class="col-md-1"></div>
+            <div class="col-sm-4">
+                <a class="btn btn-danger btn-lg w-100 h-100 font-weight-bold" asp-action="EditProduct">Regresar</a>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <a class="btn btn-success btn-lg w-100 h-100 font-weight-bold" asp-action="EditProduct">Registrar</a>
+            </div>
+        </div>
+    </div>
+</form>
