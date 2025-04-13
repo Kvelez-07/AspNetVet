@@ -1,14 +1,14 @@
-﻿@model IEnumerable<AspNetVet.Models.Suppliers>
+@model IEnumerable<AspNetVet.Models.Medicines>
 
 @{
-    ViewData["Title"] = "Buscar proveedor";
+    ViewData["Title"] = "Buscar medicinas";
 }
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm text-center">
             <h1 class="lblSearch">
-                Buscar proveedor
+                Buscar Medicinas
             </h1>
         </div>
     </div>
@@ -18,7 +18,7 @@
     <form action="/" method="post" class="formSeach">
         <div class="row">
             <div class="col-md-2">
-                <a class="btn btn-danger w-100" id="btnRegresar" asp-action="AddMedicine">Regresar</a>
+                <a class="btn btn-danger w-100" id="btnRegresar" asp-action="Index">Regresar</a>
             </div>
             <div class="col-md-1">
                 <label class="lblSearch">
@@ -50,21 +50,23 @@
                         <th class="px-3 py-2">Descripción</th>
                         <th class="px-3 py-2">Stock</th>
                         <th class="px-3 py-2">Precio</th>
+                        <th class="px-3 py-2">Opciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     @if (Model != null && Model.Any())
                     {
-                        foreach (var supplier in Model)
+                        foreach (var medicine in Model)
                         {
                             <tr>
-                                <td class="text-center">@supplier.Id</td>
-                                <td class="text-center">@supplier.Code</td>
-                                <td class="text-center">@supplier.Supplier_Name</td>
-                                <td class="text-center">@supplier.Email</td>
-                                <td class="text-center">@supplier.Phone</td>
-                                <td>
-                                    <a asp-action="AddMedicine" class="btn w-100 h-100 align-content-center bg-transparent">
+                                <td class="text-center">@medicine.Id</td>
+                                <td class="text-center">@medicine.Code</td>
+                                <td class="text-center">@medicine.Name</td>
+                                <td class="text-center">@medicine.Description</td>
+                                <td class="text-center">@medicine.Stock</td>
+                                <td class="text-center">@medicine.Price</td>
+                                <td class="text-center">
+                                    <a asp-action="Index" class="btn w-100 h-100 align-content-center bg-transparent">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
                                             <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
                                         </svg>
@@ -82,8 +84,9 @@
                             <td>sample text</td>
                             <td>sample text</td>
                             <td>sample text</td>
-                            <td>
-                                <a asp-action="AddMedicine" class="btn w-100 h-100 align-content-center bg-transparent">
+                            <td>sample text</td>
+                            <td class="text-center">
+                                <a asp-action="Index" class="btn w-100 h-100 align-content-center bg-transparent">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
                                         <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
                                     </svg>
@@ -92,7 +95,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="6" class="text-center">No se encontraron mas proveedores.</td>
+                            <td colspan="7" class="text-center">No se encontraron mas medicinas.</td>
                         </tr>
                     }
                     </tbody>

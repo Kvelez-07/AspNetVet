@@ -135,6 +135,11 @@
         padding: 8px 30px;
         border-radius: 5px;
         cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-agregar:hover {
+        color: white;
     }
 
     .buttons-container {
@@ -177,6 +182,18 @@
     }
 </style>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">
+                Agregar tratamiento
+            </h1>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+
 <form asp-action="Create" method="post">
     <div class="form-container">
         <div class="form-group">
@@ -199,34 +216,61 @@
             <div class="form-field">
                 <label class="section-label">Medicinas:</label>
                 <div class="mt-2">
-                    <button type="button" class="btn-agregar">Agregar</button>
+                    <a asp-action="GetMedicineTreatment" type="button" class="btn-agregar">Agregar</a>
                 </div>
                 <table class="medicines-table">
                     <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Code</th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Opciones</th>
-                        </tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Code</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Opciones</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <!-- This would typically be populated dynamically -->
-                        <tr>
-                            <td>
-                                <input type="hidden" name="Medicines[0].Medicines_Id" value="2" />
-                                2
-                            </td>
-                            <td>000002</td>
-                            <td>sample text</td>
-                            <td>sample text</td>
-                            <td>
-                                <button type="button" class="icon-button" onclick="removeMedicine(this)">🗑️</button>
-                            </td>
-                        </tr>
+                    <!-- This would typically be populated dynamically -->
+                    <tr>
+                        <td>
+                            <input type="hidden" name="Medicines[0].Medicines_Id" value="2" />
+                            2
+                        </td>
+                        <td>000002</td>
+                        <td>sample text</td>
+                        <td>sample text</td>
+                        <td>
+                            <a class="btn btn-sm btn-link p-0 mx-1" style="color: black" data-bs-toggle="modal" data-bs-target="#modalEliminar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="Eliminar elemento" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #eeebf8;">
+                        <h5 class="lblSearch">Eliminar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="w-100">
+                                <p>¿Desea eliminar este elemento?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex flex-row align-content-center" style="background-color: #eeebf8;">
+                        <a class="btn btn-warning flex-grow-1 h-100" id="btnRegresarDel" data-bs-dismiss="modal">Regresar</a>
+                        <a class="btn btn-danger flex-grow-1 h-100" id="btnDelete" data-bs-dismiss="modal">Eliminar</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -237,9 +281,16 @@
     </div>
 
     <div class="bottom-buttons">
-        <div class="buttons-container">
-            <button type="button" class="btn-regresar">Regresar</button>
-            <button type="submit" class="btn-agregar-tratamiento">Agregar</button>
+        <div class="row w-100 d-flex">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="AddMedicalHistory" class="btn btn-danger w-100 h-100 align-content-center">Regresar</a>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="AddMedicalHistory" class="btn btn-success w-100 h-100 align-content-center">Agregar</a>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </form>

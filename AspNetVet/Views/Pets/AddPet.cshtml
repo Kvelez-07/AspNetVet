@@ -103,6 +103,10 @@
         border-radius: 5px;
         cursor: pointer;
         margin-left: 10px;
+        text-decoration: none;
+    }
+    .search-button:hover{
+        color: white;
     }
 
     .bottom-buttons {
@@ -145,6 +149,18 @@
         width: 100%;
     }
 </style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">
+                Agregar mascota
+            </h1>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
 
 <form asp-action="Create" method="post">
     <div class="form-container">
@@ -194,7 +210,7 @@
                 </select>
                 <span asp-validation-for="Breeds_Id" class="text-danger"></span>
             </div>
-            <button type="button" class="search-button">Buscar</button>
+            <a class="search-button" asp-action="GetBreed">Buscar</a>
         </div>
 
         <div class="form-group">
@@ -208,7 +224,7 @@
                 </select>
                 <span asp-validation-for="AppUsers_Id" class="text-danger"></span>
             </div>
-            <button type="button" class="search-button">Buscar</button>
+            <a class="search-button" asp-action="GetOwner">Buscar</a>
         </div>
 
         <!-- Hidden field for Status -->
@@ -216,9 +232,16 @@
     </div>
 
     <div class="bottom-buttons">
-        <div class="buttons-container">
-            <a asp-action="Index" class="btn-regresar">Regresar</a>
-            <button type="submit" class="btn-guardar">Guardar</button>
+        <div class="row w-100 d-flex">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-danger w-100 h-100 align-content-center">Regresar</a>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-success w-100 h-100 align-content-center">Agregar</a>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </form>
