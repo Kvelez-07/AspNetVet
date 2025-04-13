@@ -9,7 +9,5 @@ namespace AspNetVet.Controllers
         public IActionResult AddSpecie() => View();
 
         public IActionResult EditSpecie() => View();
-
-        public IActionResult GetSpecie() => View();
     }
 }

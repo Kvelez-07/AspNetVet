@@ -70,7 +70,6 @@
 </div>
 
 <style>
-    /* La importación de la fuente Atma debería estar en site.css */
 
     .description-container {
         max-width: 500px;
@@ -82,16 +81,16 @@
     }
 
     .carousel-item > div {
-        display: flex !important; /* Ensure cards are in a row */
-        justify-content: space-around; /* Distribute cards evenly */
+        display: flex !important; 
+        justify-content: space-around; 
         align-items: stretch; /* Estirar las tarjetas para que tengan la misma altura */
-        height: 115%; /* Asegura que el contenedor interno ocupe toda la altura del carousel-item */
+        height: 115%; 
     }
 
     .card {
-        flex: 0 0 auto; /* Don't grow, don't shrink, base width auto */
-        width: 31%; /* Ajuste ligero del ancho para compensar el aumento de altura */
-        display: flex; /* Asegura que la tarjeta ocupe toda la altura del contenedor flex */
+        flex: 0 0 auto;
+        width: 31%; 
+        display: flex; 
         flex-direction: column; /* Alinea el contenido verticalmente */
     }
 

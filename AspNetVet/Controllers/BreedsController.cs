@@ -9,5 +9,10 @@ namespace AspNetVet.Controllers
         public IActionResult AddBreed() => View();
 
         public IActionResult EditBreed() => View();
+
+        public IActionResult RedirectToSpeciesIndex()
+        {
+            return RedirectToAction("Index", "Species");
+        }
     }
 }
