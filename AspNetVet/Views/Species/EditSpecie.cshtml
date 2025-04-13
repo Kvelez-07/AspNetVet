@@ -1,5 +1,52 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Actualizar especie";
 }
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">
+                Actualizar especie
+            </h1>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<form action="/" method="post" class="container-fluid m-3">
+    <div class="formAddMod">
+        <div class="form-group row ">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+                <label class="formText" for="codigo"> Código: </label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="codigo" id="codigo" />
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <br />
+        <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+                <label class="formText" for="nombre"> Nombre: </label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" name="nombre" id="nombre" />
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <br /> <br /> <br /> <br />
+    </div>
+    <div class="FormbtnArea">
+        <div class=" form-group row h-100 p-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <a class="btn btn-danger btn-lg w-100 h-100 font-weight-bold" asp-action="Index">Regresar</a>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <a class="btn btn-warning btn-lg w-100 h-100 font-weight-bold" asp-action="GetSpecie">Actualizar</a>
+            </div>
+        </div>
+    </div>
+</form>
