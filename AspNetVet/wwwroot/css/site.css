@@ -66,36 +66,3 @@ body {
     font-weight: bold;
     justify-content: center;
 }
-
-.formText{
-    color: #564884;
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 5px;
-}
-.bottom-buttons {
-    display: flex;
-    justify-content: space-between;
-    background-color: #eeebf8;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    padding: 20px;
-    height: 15%;
-}
-
-.search-button {
-    background-color: #8989f3;
-    color: white;
-    border: none;
-    padding: 8px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-    text-decoration: none;
-}
-
-.search-button:hover {
-    color: white;
-}
