@@ -22,7 +22,7 @@ body {
     color: #564884;
     font-size: 22px;
     font-weight: bold;
-    margin-right: 10px; /* Agregamos un pequeño espacio entre la etiqueta y el input */
+    margin-right: 10px;
 }
 
 .formSeach .row {
@@ -65,4 +65,11 @@ body {
     font-size: 16px;
     font-weight: bold;
     justify-content: center;
+}
+
+.formText{
+    color: #564884;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 5px;
 }

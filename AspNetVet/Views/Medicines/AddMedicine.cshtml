@@ -15,44 +15,54 @@
 <form action="/" method="post">
 	<div class="formAddMod">
 		<div class="form-group row">
-			<label class="col-sm-1" for="codigo"> Código: </label>
+			<div class="col-sm-1">
+				<label class="formText" for="codigo"> Código: </label>
+			</div>
 			<div class="col-sm-3">
-				<input type="text" class="form-control" name="codigo" id="codigo" />
+				<input type="text" class="form-control" name="codigo" id="codigo"/>
 			</div>
 
-			<label class="col-sm-1" for="nombre"> Nombre: </label>
+			<div class="col-sm-1">
+				<label class="formText" for="nombre"> Nombre: </label>
+			</div>
 			<div class="col-sm-7">
-				<input type="text" class="form-control" name="nombre" id="nombre" />
+				<input type="text" class="form-control" name="nombre" id="nombre"/>
 			</div>
 		</div>
 		<br />
 
 		<div class="form-group row">
-			<label class="col-sm-1" for="proveedor"> Proveedor: </label>
+			<div class="col-sm-1">
+				<label class="formText" for="proveedor"> Proveedor: </label>
+			</div>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" name="proveedor" id="proveedor" />
+				<input type="text" class="form-control" name="proveedor" id="proveedor"/>
 			</div>
 			<div class="col-sm-2">
 				<a type="button" class="btn btn-info mb-2 w-100" id="BuscarProv" asp-action="GetMedicineSupplier"> Buscar </a>
 			</div>
 
-			<label class="col-sm-1" for="precio"> Precio: </label>
+			<div class="col-sm-1">
+				<label class="formText" for="precio"> Precio: </label>
+			</div>
 			<div class="col-sm-3">
-				<input type="number" class="form-control" name="precio" id="precio" />
+				<input type="number" class="form-control" name="precio" id="precio"/>
 			</div>
 		</div>
 
 		<br />
 
 		<div class="form-group row">
-			<label for="txaDesc" class="col-sm-1">Descripción:</label>
+			<div class="col-sm-1">
+				<label for="txaDesc" class="formText">Descripción:</label>
+			</div>
 			<div class="col-sm-7">
 				<textarea class="form-control" id="txaDesc" name="txaDesc" rows="5"></textarea>
 			</div>
 			<div class="col-sm-1">
-				<label for="tipoProd">Tipo de producto:</label>
-				<br /> <br />
-				<label for="txtStock">Stock:</label>
+				<label class="formText" for="tipoProd">Tipo de producto:</label>
+				<br/> <br/>
+				<label class="formText" for="txtStock">Stock:</label>
 			</div>
 			<div class="col-sm-3">
 				<select class="form-control" id="tipoProd" name="tipoProd">
@@ -62,19 +72,23 @@
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<br /> <br />
-				<input type="number" class="form-control" name="txtStock" id="txtStock" />
+				<br/> <br/>
+				<input type="number" class="form-control" name="txtStock" id="txtStock"/>
 			</div>
 		</div>
 		<br />
 		<div class="form-group row">
 			<div class="col-sm-1"></div>
-			<label for="txtStockMin" class="col-sm-2">Stock(Mínimo):</label>
+			<div class="col-sm-2">
+				<label for="txtStockMin" class="formText">Stock (Mínimo):</label>
+			</div>
 			<div class="col-sm-2">
 				<input type="number" class="form-control" name="txtStockMin" id="txtStockMin" />
 			</div>
 			<div class="col-sm-2"></div>
-			<label for="txtStockMax" class="col-sm-2">Stock(Máximo):</label>
+			<div class="col-sm-2">
+				<label for="txtStockMax" class="formText">Stock (Máximo):</label>
+			</div>
 			<div class="col-sm-2">
 				<input type="number" class="form-control" name="txtStockMax" id="txtStockMax" />
 			</div>

@@ -1,14 +1,14 @@
-﻿@model IEnumerable<AspNetVet.Models.Medicines>
+@model IEnumerable<AspNetVet.Models.Product_Types>
 
 @{
-    ViewData["Title"] = "Medicinas";
+    ViewData["Title"] = "Tipos de productos";
 }
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm text-center">
             <h1 class="lblSearch">
-                Medicinas
+                Tipos de productos
             </h1>
         </div>
     </div>
@@ -21,34 +21,14 @@
                     Buscar:
                 </label>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-7">
                 <input type="text" class="px-4 form-control" name="busqueda" placeholder="Código / nombre" />
             </div>
             <div class="col-md-2">
                 <a class="btn btn-info w-100" id="btnBuscar">Buscar</a>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1">
-                <label for="selectTipo" class="lblSearch">Tipo:</label>
-            </div>
-            <div class="col-md-5">
-                <select class="form-control" id="selectTipo">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
             <div class="col-md-2">
-                <a class="btn btn-warning w-100" id="btnAGestTipo" asp-action="GetMedicineTypes">Gestionar Tipos</a>
-            </div>
-            <div class="col-md-2">
-                <a type="button" class="btn btn-secondary w-100" id="btnVerKardex" asp-action="GetGeneralKardex">Ver kardex</a>
-            </div>
-            <div class="col-md-2">
-                <a class="btn btn-success w-100" id="btnAgregarMedicina" asp-action="AddMedicine">Agregar Medicina</a>
+                <a class="btn btn-success w-100" id="btnAgregarMedicina" asp-action="AddProductTypes">Agregar</a>
             </div>
         </div>
     </form>
@@ -66,24 +46,18 @@
                         <th class="px-3 py-2">Id</th>
                         <th class="px-3 py-2">Código</th>
                         <th class="px-3 py-2">Nombre</th>
-                        <th class="px-3 py-2">Descripción</th>
-                        <th class="px-3 py-2">Stock</th>
-                        <th class="px-3 py-2">Precio</th>
                         <th class="px-3 py-2">Opciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     @if (Model != null && Model.Any())
                     {
-                        foreach (var medicine in Model)
+                        foreach (var type in Model)
                         {
                             <tr>
-                                <td class="text-center">@medicine.Id</td>
-                                <td class="text-center">@medicine.Code</td>
-                                <td class="text-center">@medicine.Name</td>
-                                <td class="text-center">@medicine.Description</td>
-                                <td class="text-center">@medicine.Stock</td>
-                                <td class="text-center">@medicine.Price</td>
+                                <td class="text-center">@type.Id</td>
+                                <td class="text-center">@type.Code</td>
+                                <td class="text-center">@type.Name</td>
                                 <td class="text-center">
                                     <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd1">
                                         <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
@@ -101,11 +75,8 @@
                             <td class="text-center">1</td>
                             <td class="text-center">000001</td>
                             <td>sample text</td>
-                            <td>sample text</td>
-                            <td>sample text</td>
-                            <td>sample text</td>
                             <td class="text-center">
-                                <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd1" asp-action="EditProduct">
+                                <a type="button" class="rounded  m-1 p-0 border border-light bg-transparent" id="btnModProd1" asp-action="EditProductTypes">
                                     <img src="~/resources/pen-img.jpeg" height="25px" width="25px" alt="Mod">
                                 </a>
                                 <a class="btn rounded m-1 p-0 border border-light bg-transparent" id="btnDelProd1" onclick="return confirm('Desea borrar?')">
@@ -114,7 +85,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="7" class="text-center">No se encontraron mas mascotas.</td>
+                            <td colspan="4" class="text-center">No se encontraron mas mascotas.</td>
                         </tr>
                     }
                     </tbody>
