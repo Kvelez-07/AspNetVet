@@ -25,6 +25,10 @@ body {
     margin-right: 10px;
 }
 
+main{
+    margin: 20px 20px;
+}
+
 .formSeach .row {
     margin-bottom: 10px;
 }
@@ -65,4 +69,22 @@ body {
     font-size: 16px;
     font-weight: bold;
     justify-content: center;
+}
+
+.formText {
+    color: #564884;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    background-color: #eeebf8;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 20px;
 }
