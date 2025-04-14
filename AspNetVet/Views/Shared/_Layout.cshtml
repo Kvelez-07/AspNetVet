@@ -12,16 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            background-image: url('/resources/bk_image.jpg'); /* Asegúrate de que la ruta sea correcta */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            margin: 0;
-            display: flex; /* Para el sticky footer */
-            flex-direction: column; /* Para el sticky footer */
-        }
 
         .container-fluid {
             flex-grow: 1; /* Para el sticky footer */
@@ -143,11 +133,11 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer text-muted mt-auto">
+    @*<footer class="border-top footer text-muted mt-auto">
         <div class="container">
             &copy; 2025 - AspNetVet - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
