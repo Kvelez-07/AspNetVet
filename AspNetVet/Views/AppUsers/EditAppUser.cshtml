@@ -1,0 +1,75 @@
+﻿@model AspNetVet.Models.AppUsers
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<style>
+    /* [Same CSS you already had — unchanged] */
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">Editar Usuario</h1>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<form asp-action="EditUser" method="post">
+    <div class="form-container">
+        <div class="form-group">
+            <label class="form-label" asp-for="Code">Código:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+            <label class="form-label" asp-for="FullName">Nombre completo:</label>
+            <div class="form-field" style="max-width: 600px;">
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Email">Correo:</label>
+            <div class="form-field" style="max-width: 600px;">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <label class="form-label" asp-for="Phone">Teléfono:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Roles_Id">Cargo:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <select asp-for="Roles_Id" asp-items="ViewBag.Roles" class="form-control">
+                    <option value="">Seleccione un cargo</option>
+                </select>
+                <span asp-validation-for="Roles_Id" class="text-danger"></span>
+            </div>
+        </div>
+
+        <!-- Hidden field for Status -->
+        <input type="hidden" asp-for="Status" value="true" />
+    </div>
+
+    <div class="bottom-buttons">
+        <div class="buttons-container">
+            <a asp-action="Index" class="btn-regresar">Regresar</a>
+            <button type="submit" class="btn-guardar">Guardar</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -4,9 +4,10 @@ namespace AspNetVet.Controllers
 {
     public class AppUsersController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+
+        public IActionResult AddAppUser() => View();
+
+        public IActionResult EditAppUser() => View();
     }
 }
