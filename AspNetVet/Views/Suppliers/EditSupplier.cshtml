@@ -1,0 +1,140 @@
+﻿@model AspNetVet.Models.Suppliers
+
+@{
+    ViewData["Title"] = "Agregar Proveedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .semi-transparent-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .lblSearch {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 5px;
+    }
+
+    .btn-guardar {
+        background-color: lightsalmon;
+        border-color: lightsalmon;
+        border-radius: 6px;
+        color: white;
+    }
+
+    .btn-regresar {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        border-radius: 6px;
+        color: white;
+    }
+
+    .validation-summary-errors {
+        color: red;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">Agregar Nuevo Proveedor</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid semi-transparent-container">
+    <form asp-action="AddSupplier" method="post" id="addProveedorForm">
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label asp-for="Code" class="lblSearch"></label>
+                <input asp-for="Code" class="form-control" placeholder="Ingrese el código" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="col-md-9">
+                <label asp-for="Supplier_Name" class="lblSearch"></label>
+                <input asp-for="Supplier_Name" class="form-control" placeholder="Ingrese el nombre del proveedor" />
+                <span asp-validation-for="Supplier_Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label asp-for="Phone" class="lblSearch"></label>
+                <input asp-for="Phone" class="form-control" placeholder="Ingrese el teléfono" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="col-md-9">
+                <label asp-for="Contact_Name" class="lblSearch"></label>
+                <input asp-for="Contact_Name" class="form-control" placeholder="Ingrese el nombre del contacto" />
+                <span asp-validation-for="Contact_Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label asp-for="Email" class="lblSearch"></label>
+                <input asp-for="Email" class="form-control" placeholder="Ingrese el correo electrónico" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label asp-for="Province" class="lblSearch"></label>
+                <select asp-for="Province" class="form-control" asp-items="ViewBag.Provincias">
+                    <option value="">Seleccione una provincia</option>
+                </select>
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label asp-for="District" class="lblSearch"></label>
+                <select asp-for="District" class="form-control" asp-items="ViewBag.Distritos">
+                    <option value="">Seleccione un distrito</option>
+                </select>
+                <span asp-validation-for="District" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label asp-for="Canton" class="lblSearch"></label>
+                <select asp-for="Canton" class="form-control" asp-items="ViewBag.Cantones">
+                    <option value="">Seleccione un cantón</option>
+                </select>
+                <span asp-validation-for="Canton" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label asp-for="Address" class="lblSearch"></label>
+                <textarea asp-for="Address" class="form-control" rows="3" placeholder="Ingrese la dirección"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-editar w-100" id="btnEditarProveedor">Guardar</button>
+            </div>
+            <div class="col-md-3">
+                <a asp-action="Index" class="btn btn-regresar w-100">Regresar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

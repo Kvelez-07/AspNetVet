@@ -4,9 +4,10 @@ namespace AspNetVet.Controllers
 {
     public class SuppliersController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+
+        public IActionResult AddSupplier() => View();
+
+        public IActionResult EditSuppler() => View();
     }
 }
