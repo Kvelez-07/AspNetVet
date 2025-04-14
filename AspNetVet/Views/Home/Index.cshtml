@@ -70,18 +70,6 @@
 </div>
 
 <style>
-    /* La importación de la fuente Atma debería estar en site.css */
-    body {
-        background-image: url('resources/bk_image.jpg'); /* Asegúrate de que la ruta sea correcta */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-        margin: 0;
-        display: flex; /* Para el sticky footer */
-        flex-direction: column; /* Para el sticky footer */
-    }
-    
     .description-container {
         max-width: 500px;
         background-color: rgba(0, 0, 0, 0.3); /* Fondo oscuro más transparente para el texto blanco */
@@ -92,16 +80,16 @@
     }
 
     .carousel-item > div {
-        display: flex !important; /* Ensure cards are in a row */
-        justify-content: space-around; /* Distribute cards evenly */
+        display: flex !important; 
+        justify-content: space-around; 
         align-items: stretch; /* Estirar las tarjetas para que tengan la misma altura */
-        height: 115%; /* Asegura que el contenedor interno ocupe toda la altura del carousel-item */
+        height: 115%; 
     }
 
     .card {
-        flex: 0 0 auto; /* Don't grow, don't shrink, base width auto */
-        width: 31%; /* Ajuste ligero del ancho para compensar el aumento de altura */
-        display: flex; /* Asegura que la tarjeta ocupe toda la altura del contenedor flex */
+        flex: 0 0 auto;
+        width: 31%; 
+        display: flex; 
         flex-direction: column; /* Alinea el contenido verticalmente */
     }
 
