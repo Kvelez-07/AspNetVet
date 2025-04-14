@@ -14,23 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\VetController.cs" />
-    <Compile Remove="Controllers\VetsController.cs" />
-    <Compile Remove="Models\Users - Copia.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Views\Vets\Index.cshtml" />
-    <Content Remove="Views\Vets\Vet.cshtml" />
-    <Content Remove="Views\Vets\Veterinarians.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Vets\" />
   </ItemGroup>
 
 </Project>
