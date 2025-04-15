@@ -125,46 +125,53 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm text-center">
-            <h1 class="lblSearch">Editar Usuario</h1>
+            <h1 class="lblSearch">Actualizar Usuario</h1>
         </div>
     </div>
 </div>
 <br />
 <br />
 
-<form asp-action="EditUser" method="post">
+<form asp-action="EditAppUser" method="post">
     <div class="form-container">
-        <div class="form-group">
-            <label class="form-label" asp-for="Code">Código:</label>
-            <div class="form-field" style="max-width: 300px;">
-                <input asp-for="Code" class="form-control" />
+        <div class="form-group row">
+            <div class="col-sm-1">
+                <label class="form-label" asp-for="Code">Código:</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Code" class="form-control"/>
                 <span asp-validation-for="Code" class="text-danger"></span>
             </div>
+        </div>
 
-            <label class="form-label" asp-for="FullName">Nombre completo:</label>
-            <div class="form-field" style="max-width: 600px;">
-                <input asp-for="FullName" class="form-control" />
+        <div class="form-group row">
+            <div class="col-sm-1">
+                <label class="form-label" asp-for="FullName">Nombre completo:</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="FullName" class="form-control"/>
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label" asp-for="Email">Correo:</label>
-            <div class="form-field" style="max-width: 600px;">
-                <input asp-for="Email" class="form-control" />
+            <div class="col-sm-1">
+                <label class="form-label" asp-for="Email">Correo:</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Email" class="form-control"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-
-            <label class="form-label" asp-for="Phone">Teléfono:</label>
-            <div class="form-field" style="max-width: 300px;">
-                <input asp-for="Phone" class="form-control" />
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-1">
+                <label class="form-label" asp-for="Phone">Teléfono:</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Phone" class="form-control"/>
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label" asp-for="Roles_Id">Cargo:</label>
-            <div class="form-field" style="max-width: 300px;">
+            <div class="col-sm-1">
+                <label class="form-label" asp-for="Roles_Id">Cargo:</label>
+            </div>
+            <div class="col-sm-4">
                 <select asp-for="Roles_Id" asp-items="ViewBag.Roles" class="form-control">
                     <option value="">Seleccione un cargo</option>
                 </select>
@@ -172,14 +179,20 @@
             </div>
         </div>
 
-        <!-- Hidden field for Status -->
         <input type="hidden" asp-for="Status" value="true" />
     </div>
 
     <div class="bottom-buttons">
-        <div class="buttons-container">
-            <a asp-action="Index" class="btn-regresar">Regresar</a>
-            <button type="submit" class="btn-guardar">Guardar</button>
+        <div class="row w-100 d-flex">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-danger w-100 h-100 align-content-center">Regresar</a>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-warning w-100 h-100 align-content-center">Actualizar</a>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </form>
