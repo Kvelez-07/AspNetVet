@@ -8,6 +8,6 @@ namespace AspNetVet.Controllers
 
         public IActionResult AddSupplier() => View();
 
-        public IActionResult EditSuppler() => View();
+        public IActionResult EditSupplier() => View();
     }
 }
