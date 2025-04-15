@@ -1,0 +1,182 @@
+﻿@model AspNetVet.Models.AppUsers
+
+@{
+    ViewData["Title"] = "Editar Veterinario";
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+
+    .lblSearch {
+        font-size: 32px;
+        font-weight: bold;
+        color: #3c3c7b;
+        margin-top: 20px;
+    }
+
+    .form-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 30px;
+        align-items: center;
+    }
+
+    .form-label {
+        width: 150px;
+        text-align: right;
+        padding-right: 20px;
+        font-weight: bold;
+        color: #3c3c7b;
+    }
+
+    .form-field {
+        flex: 1;
+        min-width: 250px;
+    }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+    .bottom-buttons {
+        display: flex;
+        justify-content: space-between;
+        background-color: #eeebf8;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        padding: 20px;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .buttons-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .btn-regresar,
+    .btn-guardar {
+        border: none;
+        padding: 12px 50px;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-regresar {
+        background-color: #e79a9a;
+        color: black;
+    }
+
+    .btn-guardar {
+        background-color: #92ec92;
+        color: black;
+    }
+
+    .btn-regresar:hover {
+        background-color: #d17777;
+    }
+
+    .btn-guardar:hover {
+        background-color: #7bdc7b;
+    }
+
+    .form-label {
+        width: 100%;
+        text-align: left;
+        padding-bottom: 5px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .btn-regresar,
+    .btn-guardar {
+        width: 100%;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">Editar Veterinario</h1>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<form asp-action="EditVet" method="post">
+    <div class="form-container">
+        <div class="form-group">
+            <label class="form-label" asp-for="Code">Código:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+            <label class="form-label" asp-for="FullName">Nombre completo:</label>
+            <div class="form-field" style="max-width: 600px;">
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Email">Correo:</label>
+            <div class="form-field" style="max-width: 600px;">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <label class="form-label" asp-for="Phone">Teléfono:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+@*             <label class="form-label" asp-for="Specialty">Especialidad:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div> *@
+        </div>
+    </div>
+
+    <div class="bottom-buttons">
+        <div class="buttons-container">
+            <a asp-action="Index" class="btn-regresar">Regresar</a>
+            <button type="submit" class="btn-guardar">Guardar</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

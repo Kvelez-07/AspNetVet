@@ -1,0 +1,210 @@
+﻿@model AspNetVet.Models.AppUsers
+
+@{
+    ViewData["Title"] = "Agregar Veterinario";
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+
+    .logo {
+        font-size: 32px;
+        font-weight: bold;
+        color: #3c3c7b;
+        margin-left: 30px;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    .main-nav {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .main-nav li {
+            padding: 10px 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+        z-index: 1;
+        left: 0;
+        top: 100%;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .main-nav li:hover .dropdown-content {
+        display: block;
+    }
+
+    .form-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        margin-bottom: 40px;
+        align-items: center;
+    }
+
+    .form-label {
+        width: 150px;
+        text-align: right;
+        padding-right: 20px;
+        font-weight: bold;
+        color: #3c3c7b;
+    }
+
+    .form-field {
+        flex: 1;
+    }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+    .search-button {
+        background-color: #8989f3;
+        color: white;
+        border: none;
+        padding: 8px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+        text-decoration: none;
+    }
+
+        .search-button:hover {
+            color: white;
+        }
+
+    .bottom-buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        background-color: #eeebf8;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        padding: 20px;
+    }
+
+    .btn-regresar {
+        background-color: #e79a9a;
+        color: black;
+        border: none;
+        padding: 10px 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn-guardar {
+        background-color: #92ec92;
+        color: black;
+        border: none;
+        padding: 10px 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .buttons-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h1 class="lblSearch">Agregar Veterinario</h1>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<form asp-action="AddVet" method="post">
+    <div class="form-container">
+        <div class="form-group">
+            <label class="form-label" asp-for="Code">Código:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+            <label class="form-label" asp-for="FullName">Nombre completo:</label>
+            <div class="form-field" style="max-width: 600px;">
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Email">Correo:</label>
+            <div class="form-field" style="max-width: 600px;">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <label class="form-label" asp-for="Phone">Teléfono:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+@*             <label class="form-label" asp-for="Specialty">Especialidad:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div> *@
+        </div>
+
+    </div>
+
+    <div class="bottom-buttons">
+        <div class="buttons-container">
+            <a asp-action="Index" class="btn-regresar">Regresar</a>
+            <button type="submit" class="btn-guardar">Agregar</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
