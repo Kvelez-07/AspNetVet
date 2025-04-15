@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table id="appointmentsTable" class="table table-bordered">
+                <table id="TableModel" class="table table-bordered table-hover">
                     <thead>
                     <tr class="text-center" style="background-color: #8954a8; color: white;">
                         <th class="px-3 py-2">Id</th>
@@ -129,28 +129,6 @@
 </div>
 
 <style>
-    /* Custom Table Styles */
-    #appointmentsTable {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 1rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-        #appointmentsTable thead tr {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #appointmentsTable th {
-            text-align: center;
-            font-weight: normal;
-        }
-
-        #appointmentsTable td, #appointmentsTable th {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
     /* Form Controls */
     .form-control {
         border: 1px solid #ced4da;
@@ -164,41 +142,9 @@
         border-color: #7579E7;
     }
 
-    #appTypeButton {
-        background-color: #5BC0DE;
-        border-color: #5BC0DE;
-    }
-
     #addButton {
         background-color: #7CFC00;
         border-color: #7CFC00;
         color: #333;
-    }
-
-    /* Keep rows and buttons compact */
-    .table td, .table th {
-        vertical-align: middle;
-    }
-
-    .bottom-buttons {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 0;
-        background-color: #eeebf8;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        padding: 20px;
-    }
-
-    .btn-regresar {
-        background-color: #e79a9a;
-        color: black;
-        border: none;
-        padding: 10px 50px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
     }
 </style>

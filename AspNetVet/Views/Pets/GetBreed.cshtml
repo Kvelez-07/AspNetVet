@@ -5,120 +5,17 @@
 }
 
 <style>
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .logo {
-        font-size: 32px;
-        font-weight: bold;
-        color: #3c3c7b;
-    }
-
-    .nav-container {
-        display: flex;
-        background-color: #f8f9fa;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .main-nav {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
 
         .main-nav li {
             padding: 15px 20px;
             cursor: pointer;
         }
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-        }
-
-    .search-container {
-        display: flex;
-        align-items: center;
-        margin: 20px 0;
-        gap: 10px;
-    }
-
-    .btn-regresar {
-        background-color: #e79a9a;
-        color: black;
-        border: none;
-        padding: 10px 25px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .btn-buscar {
-        background-color: #8989f3;
-        color: white;
-        border: none;
-        padding: 10px 25px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .search-input {
-        flex-grow: 1;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-
-    .table-header {
-        background-color: #7a5c9e;
-        color: white;
-    }
-
-        .table-header th {
-            padding: 12px;
-            text-align: left;
-        }
-
-    .select-btn {
-        background-color: black;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        padding: 8px 12px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .breed-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-        .breed-table td {
-            padding: 12px;
-            border: 1px solid #ddd;
-        }
-
-        .breed-table tr:nth-child(even) {
-            background-color: #f9f9f9;
         }
 </style>
 
@@ -153,8 +50,8 @@
     </form>
     <br />
 </div>
-
-<table class="breed-table" id="breedTable">
+<br/>
+<table id="TableModel" class="table table-bordered table-hover">
     <thead>
         <tr class="table-header">
             <th>Id</th>
