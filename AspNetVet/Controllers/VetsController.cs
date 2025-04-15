@@ -4,9 +4,12 @@ namespace AspNetVet.Controllers
 {
     public class VetsController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+
+        public IActionResult AddVet() => View();
+
+        public IActionResult EditVet() => View();
+
+        public IActionResult GetVetSpecialty() => View();
     }
 }
