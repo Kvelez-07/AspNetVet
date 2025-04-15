@@ -132,7 +132,7 @@
 <br />
 <br />
 
-<form asp-action="EditAppUser" method="post">
+<form asp-action="EditVet" method="post">
     <div class="form-container">
         <div class="form-group">
             <label class="form-label" asp-for="Code">Código:</label>
@@ -156,6 +156,12 @@
             </div>
 
             <label class="form-label" asp-for="Phone">Teléfono:</label>
+            <div class="form-field" style="max-width: 300px;">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <label class="form-label" asp-for="Phone">Especialidad:</label>
             <div class="form-field" style="max-width: 300px;">
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>

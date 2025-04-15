@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AspNetVet.Models
 {
-    public class AppUsers
+    public class Vet
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -20,11 +20,7 @@ namespace AspNetVet.Models
         [Required, MaxLength(15)]
         public string Phone { get; set; } = string.Empty;
 
-        [ForeignKey("Roles")]
-        public int Roles_Id { get; set; }
-        public Roles? Roles { get; set; }
-
-        [Required]
-        public bool Status { get; set; } = true;
+        [Required, MaxLength(15)]
+        public string Specialty { get; set; } = string.Empty;
     }
 }
