@@ -88,3 +88,39 @@ main{
     left: 0;
     padding: 20px;
 }
+
+#TableModel {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+#TableModel thead tr {
+    background-color: #8954a8;
+    color: white;
+    text-transform: capitalize;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#TableModel th {
+    font-weight: normal;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #8954a8;
+}
+
+#TableModel td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#TableModel tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#TableModel thead {
+    filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.15));
+}

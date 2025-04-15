@@ -4,17 +4,27 @@
     ViewData["Title"] = "Editar Veterinario";
 }
 
+
 <style>
     body {
         background-color: #f8f9fa;
         font-family: Arial, sans-serif;
     }
+    .main-nav li {
+        padding: 10px 20px;
+        position: relative;
+        cursor: pointer;
+    }
 
-    .lblSearch {
-        font-size: 32px;
-        font-weight: bold;
-        color: #3c3c7b;
-        margin-top: 20px;
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .main-nav li:hover .dropdown-content {
+        display: block;
     }
 
     .form-container {
@@ -25,99 +35,20 @@
 
     .form-group {
         display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         align-items: center;
     }
-
-    .form-label {
-        width: 150px;
-        text-align: right;
-        padding-right: 20px;
-        font-weight: bold;
-        color: #3c3c7b;
-    }
-
     .form-field {
         flex: 1;
-        min-width: 250px;
     }
 
-        .form-field input,
-        .form-field select,
-        .form-field textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-    .bottom-buttons {
-        display: flex;
-        justify-content: space-between;
-        background-color: #eeebf8;
-        position: fixed;
-        bottom: 0;
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
         width: 100%;
-        left: 0;
-        padding: 20px;
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .buttons-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .btn-regresar,
-    .btn-guardar {
-        border: none;
-        padding: 12px 50px;
-        border-radius: 6px;
-        font-weight: bold;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-regresar {
-        background-color: #e79a9a;
-        color: black;
-    }
-
-    .btn-guardar {
-        background-color: #92ec92;
-        color: black;
-    }
-
-    .btn-regresar:hover {
-        background-color: #d17777;
-    }
-
-    .btn-guardar:hover {
-        background-color: #7bdc7b;
-    }
-
-    .form-label {
-        width: 100%;
-        text-align: left;
-        padding-bottom: 5px;
-    }
-
-    .buttons-container {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .btn-regresar,
-    .btn-guardar {
-        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
     }
 </style>
 
@@ -134,45 +65,67 @@
 
 <form asp-action="EditVet" method="post">
     <div class="form-container">
-        <div class="form-group">
-            <label class="form-label" asp-for="Code">Código:</label>
-            <div class="form-field" style="max-width: 300px;">
-                <input asp-for="Code" class="form-control" />
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1">
+                <label class="formText" asp-for="Code">Código:</label>
+            </div>
+            <div class="form-field col-sm-3">
+                <input asp-for="Code" class="form-control"/>
                 <span asp-validation-for="Code" class="text-danger"></span>
             </div>
-
-            <label class="form-label" asp-for="FullName">Nombre completo:</label>
-            <div class="form-field" style="max-width: 600px;">
-                <input asp-for="FullName" class="form-control" />
+            <div class="col-sm-1">
+                <label class="formText" asp-for="FullName">Nombre completo:</label>
+            </div>
+            <div class="form-field col-sm-3">
+                <input asp-for="FullName" class="form-control"/>
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="form-label" asp-for="Email">Correo:</label>
-            <div class="form-field" style="max-width: 600px;">
-                <input asp-for="Email" class="form-control" />
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1">
+                <label class="formText" asp-for="Email">Correo:</label>
+            </div>
+            <div class="form-field col-sm-3">
+                <input asp-for="Email" class="form-control"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
-            <label class="form-label" asp-for="Phone">Teléfono:</label>
-            <div class="form-field" style="max-width: 300px;">
-                <input asp-for="Phone" class="form-control" />
+            <div class="col-sm-1">
+                <label class="formText" asp-for="Phone">Teléfono:</label>
+            </div>
+            <div class="form-field col-sm-2">
+                <input asp-for="Phone" class="form-control"/>
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-
-@*             <label class="form-label" asp-for="Specialty">Especialidad:</label>
-            <div class="form-field" style="max-width: 300px;">
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div> *@
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2  text-center">
+                <label class="formText  text-center" for="Specialty">Especialidad:</label>
+            </div>
+            <div class="form-field col-sm-4">
+                <input id="Specialty" class="form-control"/>
+                <span validation-for="Specialty" class="text-danger"></span>
+            </div>
+            <div class="col-sm-2">
+                <a asp-action="GetVetSpecialty" class="btn btn-primary w-100 h-100 align-content-center">Buscar</a>
+            </div>
         </div>
     </div>
 
     <div class="bottom-buttons">
-        <div class="buttons-container">
-            <a asp-action="Index" class="btn-regresar">Regresar</a>
-            <button type="submit" class="btn-guardar">Guardar</button>
+        <div class="row w-100 d-flex">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-danger w-100 h-100 align-content-center">Regresar</a>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5 w-25">
+                <a asp-action="Index" class="btn btn-success w-100 h-100 align-content-center">Agregar</a>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </form>

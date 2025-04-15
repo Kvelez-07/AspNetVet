@@ -10,44 +10,11 @@
         font-family: Arial, sans-serif;
     }
 
-    .logo {
-        font-size: 32px;
-        font-weight: bold;
-        color: #3c3c7b;
-        margin-left: 30px;
-    }
-
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        background-color: #f8f9fa;
-        border-bottom: 1px solid #ddd;
-        padding: 10px 0;
-    }
-
-    .main-nav {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
         .main-nav li {
             padding: 10px 20px;
             position: relative;
             cursor: pointer;
         }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #ffffff;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-        z-index: 1;
-        left: 0;
-        top: 100%;
-    }
 
         .dropdown-content a {
             color: black;
@@ -96,38 +63,6 @@
             height: 120px;
         }
 
-    .bottom-buttons {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 0;
-        background-color: #eeebf8;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        padding: 20px;
-    }
-
-    .btn-regresar {
-        background-color: #e79a9a;
-        color: black;
-        border: none;
-        padding: 10px 50px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .btn-agregar-tratamiento {
-        background-color: #92ec92;
-        color: black;
-        border: none;
-        padding: 10px 50px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
     .btn-agregar {
         background-color: #7ba3e0;
         color: white;
@@ -140,37 +75,6 @@
 
     .btn-agregar:hover {
         color: white;
-    }
-
-    .buttons-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .medicines-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-    }
-
-        .medicines-table th, .medicines-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-
-        .medicines-table th {
-            background-color: #f8f9fa;
-        }
-
-    .icon-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 18px;
     }
 
     .section-label {
@@ -211,6 +115,7 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
         </div>
+        <br/>
 
         <div class="form-group">
             <div class="form-field">
@@ -218,7 +123,8 @@
                 <div class="mt-2">
                     <a asp-action="GetMedicineTreatment" type="button" class="btn-agregar">Agregar</a>
                 </div>
-                <table class="medicines-table">
+                <br/>
+                <table id="TableModel" class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>Id</th>

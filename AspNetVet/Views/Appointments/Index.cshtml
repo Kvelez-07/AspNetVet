@@ -57,8 +57,8 @@
     <!-- Table Section -->
     <div class="row">
         <div class="col-12">
-            <div class="table-responsive table-hover">
-                <table id="appointmentsTable" class="table table-bordered">
+            <div class="table-responsive">
+                <table id="TableModel" class="table table-bordered table-hover">
                     <thead>
                         <tr class="text-center">
                             <th class="px-3 py-2">Id</th>
@@ -187,11 +187,6 @@
 </div>
 
 <style>
-    /* Navigation and Layout */
-    .container-fluid {
-        padding: 15px;
-    }
-
     /* Search Input */
     #search {
         border-radius: 20px;
@@ -224,44 +219,6 @@
         border-color: #8CE063;
         border-radius: 6px;
     }
-
-    /* Table Styles */
-    #appointmentsTable {
-        border-collapse: separate;
-        border-spacing: 0;
-        width: 100%;
-        border: 1px solid #ccc;
-    }
-
-        #appointmentsTable thead tr {
-            background-color: #8954a8;
-            color: white;
-            text-transform: capitalize;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #appointmentsTable th {
-            font-weight: normal;
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #8954a8;
-        }
-
-        #appointmentsTable td {
-            padding: 8px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-
-        #appointmentsTable tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        /* Fix the header row shadow */
-        #appointmentsTable thead {
-            filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.15));
-        }
-
     /* Icon styling */
     .btn-link {
         color: #333;

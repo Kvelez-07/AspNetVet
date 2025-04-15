@@ -10,44 +10,11 @@
         font-family: Arial, sans-serif;
     }
 
-    .logo {
-        font-size: 32px;
-        font-weight: bold;
-        color: #3c3c7b;
-        margin-left: 30px;
-    }
-
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        background-color: #f8f9fa;
-        border-bottom: 1px solid #ddd;
-        padding: 10px 0;
-    }
-
-    .main-nav {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
         .main-nav li {
             padding: 10px 20px;
             position: relative;
             cursor: pointer;
         }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #ffffff;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-        z-index: 1;
-        left: 0;
-        top: 100%;
-    }
 
         .dropdown-content a {
             color: black;
@@ -56,7 +23,7 @@
             display: block;
         }
 
-    .main-nav li:hover .dropdown-content {
+    .main-nav li:hover {
         display: block;
     }
 
@@ -95,16 +62,6 @@
             height: 120px;
         }
 
-    .search-button {
-        background-color: #8989f3;
-        color: white;
-        border: none;
-        padding: 8px 30px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-left: 10px;
-    }
-
     .bottom-buttons {
         display: flex;
         justify-content: space-between;
@@ -115,34 +72,6 @@
         width: 100%;
         left: 0;
         padding: 20px;
-    }
-
-    .btn-regresar {
-        background-color: #e79a9a;
-        color: black;
-        border: none;
-        padding: 10px 50px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .btn-guardar {
-        background-color: #92ec92;
-        color: black;
-        border: none;
-        padding: 10px 50px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .buttons-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
     }
 </style>
 
@@ -177,14 +106,6 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
         </div>
-
-@*         <div class="form-group">
-            <label class="form-label">Estado:</label>
-            <div class="form-field">
-                <input type="checkbox" asp-for="Status" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-        </div> *@
     </form>
 </div>
 
